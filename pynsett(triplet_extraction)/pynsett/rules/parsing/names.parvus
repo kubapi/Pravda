@@ -1,0 +1,54 @@
+
+# Conjunction between names
+
+MATCH {'tag': 'n'}(a), {'name': 'r', 'type':'CONJ'}(a,b), {}(b)
+DELETE r
+CREATE {}(a), {'type': 'CONJUNCTION'}(a,b), {}(b);
+
+MATCH {}(a), {'name': 'r', 'type':'NUMMOD'}(a,b), {}(b)
+DELETE r
+CREATE {}(a), {'type': 'NUMBER'}(a,b), {}(b);
+
+
+# The english possessive is rewritten as an edge with type 'OWNS'
+MATCH {}(a), {'name': 'r1', 'type':'POSS'}(a,b), {}(b), {'name': 'r2', 'type':'CASE'}(b,c), {'tag':'POS'}(c)
+DELETE r, r2, c
+CREATE {}(b), {'type': 'OWNS'}(b,a), {}(a);
+
+
+# Process possessive pronouns
+
+MATCH {}(a), {'name': 'r', 'type': 'POSS'}(a,b), {'tag': 'PRP$', 'lemma': 'my'}(b)
+DELETE r
+SET (assoc b "lemma" "me")
+SET (assoc b "word" "me")
+SET (assoc b "compound" "me")
+CREATE {}(a), {'type': 'OWNS'}(b,a), {}(b);
+
+MATCH {}(a), {'name': 'r', 'type': 'POSS'}(a,b), {'tag': 'PRP$', 'lemma': 'his'}(b)
+DELETE r
+SET (assoc b "lemma" "he")
+SET (assoc b "word" "he")
+SET (assoc b "compound" "he")
+CREATE {}(a), {'type': 'OWNS'}(b,a), {}(b);
+
+MATCH {}(a), {'name': 'r', 'type': 'POSS'}(a,b), {'tag': 'PRP$', 'lemma': 'her'}(b)
+DELETE r
+SET (assoc b "lemma" "she")
+SET (assoc b "word" "she")
+SET (assoc b "compound" "she")
+CREATE {}(a), {'type': 'OWNS'}(b,a), {}(b);
+
+MATCH {}(a), {'name': 'r', 'type': 'POSS'}(a,b), {'tag': 'PRP$', 'lemma': 'our'}(b)
+DELETE r
+SET (assoc b "lemma" "we")
+SET (assoc b "word" "we")
+SET (assoc b "compound" "we")
+CREATE {}(a), {'type': 'OWNS'}(b,a), {}(b);
+
+MATCH {}(a), {'name': 'r', 'type': 'POSS'}(a,b), {'tag': 'PRP$', 'lemma': 'their'}(b)
+DELETE r
+SET (assoc b "lemma" "they")
+SET (assoc b "word" "they")
+SET (assoc b "compound" "they")
+CREATE {}(a), {'type': 'OWNS'}(b,a), {}(b);

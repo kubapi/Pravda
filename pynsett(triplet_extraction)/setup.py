@@ -1,0 +1,45 @@
+from setuptools import setup
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setup(name='pynsett',
+      version='0.1.8',
+      url='http://github.com/fractalego/pynsett',
+      author='Alberto Cetoli',
+      author_email='alberto@nlulite.com',
+      description="A programmable relation extractor",
+      long_description=long_description,
+      long_description_content_type="text/markdown",
+      packages=['pynsett',
+                'pynsett.auxiliary',
+                'pynsett.discourse',
+                'pynsett.drt',
+                'pynsett.examples',
+                'pynsett.extractor',
+                'pynsett.inference',
+                'pynsett.install',
+                'pynsett.knowledge',
+                'pynsett.metric',
+                'pynsett.nl',
+                'pynsett.tests',
+                'pynsett.writer',
+                'pynsett.server',
+                ],
+      install_requires=[
+          'spacy==2.1.3',
+          'nltk==3.2.1',
+          'rdflib==4.2.2',
+          'yappi==1.0',
+          'gensim==3.7.2',
+          'parvusdb==0.0.26',
+          'nose==1.3.7',
+          'allennlp==0.8.3',
+          'flask==1.0.2',
+          'flask-cors',
+      ],
+      classifiers=[
+          'License :: OSI Approved :: MIT License',
+      ],
+      include_package_data=True,
+      zip_safe=False)

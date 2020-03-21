@@ -1,0 +1,176 @@
+
+# Personal pronouns
+
+# Rules for 'he'
+
+# John drove home and he arrived in time
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {'type': 'AGENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'AGENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {'type': 'PATIENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'AGENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {'type': 'AGENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'PATIENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {'type': 'PATIENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'PATIENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+# Generic pronoun match
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {'tag': 'PRP', 'lemma': 'he'}(c)
+SET (assoc c "refers_to" (get a "name"));
+
+MATCH {'entity': 'PERSON', 'tag': 'n', 'gender_guess': 'm'}(v2),
+      {}(v3),
+      {}(v4),
+      {}(v6),
+      {}(v3,v4),
+      {}(v4,v6),
+      {}(c,v6),
+      {'type': 'AGENT'}(v3,v2),
+      {'tag': 'PRP', 'lemma': 'he'}(c)
+SET (assoc c "refers_to" (get v2 "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {'tag': 'PRP', 'lemma': 'he'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'm'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {}(d),
+      {}(d,e),
+      {'tag': 'PRP', 'lemma': 'he'}(e)
+SET (assoc d "refers_to" (get a "name"));
+
+# Rules for 'she'
+
+# Jane drove home and he arrived in time
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {'type': 'AGENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'AGENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {'type': 'PATIENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'AGENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {'type': 'AGENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'PATIENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {'type': 'PATIENT'}(b,a),
+      {'tag': 'v'}(b),
+      {}(b,c),
+      {'tag': 'v'}(c),
+      {'type': 'PATIENT'}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+# Generic pronoun match
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {'tag': 'PRP', 'lemma': 'she'}(c)
+SET (assoc c "refers_to" (get a "name"));
+
+MATCH {'entity': 'PERSON', 'tag': 'n', 'gender_guess': 'f'}(v2),
+      {}(v3),
+      {}(v4),
+      {}(v6),
+      {}(v3,v4),
+      {}(v4,v6),
+      {}(c,v6),
+      {'type': 'AGENT'}(v3,v2),
+      {'tag': 'PRP', 'lemma': 'she'}(c)
+SET (assoc c "refers_to" (get v2 "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {'tag': 'PRP', 'lemma': 'she'}(d)
+SET (assoc d "refers_to" (get a "name"));
+
+MATCH {'tag': 'n', 'entity': 'PERSON', 'gender_guess': 'f'}(a),
+      {}(b,a),
+      {}(b),
+      {}(b,c),
+      {}(c),
+      {}(c,d),
+      {}(d),
+      {}(d,e),
+      {'tag': 'PRP', 'lemma': 'she'}(e)
+SET (assoc e "refers_to" (get a "name"));

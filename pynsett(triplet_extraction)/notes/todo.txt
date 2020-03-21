@@ -1,0 +1,13 @@
+1) The extractor returns multiple identical triples with parvusdb==0.0.14. Investigate.
+2) Use Cython?
+3) add_graph_to_namespace() in CodeContainer is the slowest. Maybe it can be called only once
+   instead of every node and edge comparison.
+4) ast_compile can be done during add_line() instead of _execute_code()
+5) Use en_core_web_md by default: the NER is not good enough for en_core_web_sm
+
+6) IN PARVUSDB use hy==0.13.0
+7) Link automatically en_core... to en
+8) pip install paramiko?
+9) Make it work on Neo4j with global graph
+10) Paragraphs need to be small for anaphora to be decent. Create a Paragraph parser?
+11) Some names ("hans", "antwerp") do to do coreference correctly.
