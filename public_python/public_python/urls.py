@@ -22,8 +22,8 @@ from main_application import views
 
 urlpatterns = [
     # Landing page
-    path('', views.main, name = 'main')
-
+    path('', views.main, name = 'main'),
+    
     # View for Django admin
     path('admin/', admin.site.urls),
 
