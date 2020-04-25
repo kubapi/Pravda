@@ -4,10 +4,17 @@ from django.views.generic.list import ListView
 from .models import Article, FAQ
 # from .forms import FAQForm
 
+from .utils import grouped
+
 class FAQListView(ListView):
     model = FAQ
     template_name = 'faq_list.html'
-    ordering = ['?']
+
+    def get_context_data(self, **kwargs):
+        context = super(FAQListView, self).get_context_data(**kwargs)
+        context['faq_list'] = grouped(FAQ.objects.all(), 3)
+        print(type(context['faq_list']))
+        return context
 
 def index(request):
     return render(request, 'newsapp/index.html')

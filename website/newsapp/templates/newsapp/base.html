@@ -18,13 +18,49 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- jQuery, Bootstrap.js -->
+  <!-- jQuery, Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href="{% url 'newsapp:index' %}">Główna</a></li>
+      <li><a href="{% url 'newsapp:about' %}">O nas</a></li>
+      <li><a href="{% url 'newsapp:extension' %}">Wtyczka</a></li>
+      <li><a href="{% url 'newsapp:contact' %}">Kontakt</a></li>
+      <li><a href="{% url 'newsapp:finances' %}">Finansowanie</a></li>
+      <li><a href="{% url 'newsapp:support' %}">Wsparcie</a></li>
+      <li><a href="{% url 'newsapp:voluntary_service' %}">Wolontariat</a></li>
+      <li><a href="{% url 'newsapp:faq' %}">FAQ</a></li>
 
+
+      <br>
+      🔥Roboty🔥
+      <li><a href="#">Detal</a></li>
+      <li><a href="#">Archiwum</a></li>
+      <li><a href="#">Raporty i Analizy</a></li>
+      <li><a href="#">Edytor</a></li>
+
+    </ul>
+  </nav>
+  <div class="container">
+    <header>
+      CZARNONABIAŁYM TYTUŁ
+    </header>
+    {% block body %}
+
+    {% endblock %}
+  </div>
+  <footer>
+    <div class="container">
+      STÓPKA
+    </div>
+  </footer>
+
+  <!-- Project JS-->
+  <script src="{% static 'newsapp/script.js' %}" charset="utf-8"></script>
 </body>
 
 </html>
