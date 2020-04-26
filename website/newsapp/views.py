@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from .models import Article, FAQ
 # from .forms import FAQForm
 
-from .utils import grouped
+from .utils import grouped, translate
 
 class FAQListView(ListView):
     model = FAQ
@@ -13,7 +13,6 @@ class FAQListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(FAQListView, self).get_context_data(**kwargs)
         context['faq_list'] = grouped(FAQ.objects.all(), 3)
-        print(type(context['faq_list']))
         return context
 
 def index(request):
