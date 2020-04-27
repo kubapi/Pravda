@@ -8,10 +8,10 @@ urlpatterns = [
     # Landing page
     path('', views.index, name = 'index'),
     path('faq/', views.FAQListView.as_view(), name='faq'),
+    path('kontakt/', views.ContactView.as_view(), name='contact'),
 
     # URLs to Plain Views
     path('o-nas/', views.about, name='about'),
-    path('kontakt/', views.contact, name='contact'),
     path('wtyczka/', views.extension, name='extension'),
     path('finansowanie/', views.finances, name='finances'),
     path('wsparcie/', views.support, name='support'),

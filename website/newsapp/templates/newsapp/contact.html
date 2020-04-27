@@ -15,6 +15,7 @@
 
 <form class="contact-form" method="post">
   {% csrf_token %}
+  {{ form|crispy }}
   <button type="submit" class="btn btn-primary">Wyślij</button>
 </form>
 

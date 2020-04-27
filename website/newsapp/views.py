@@ -1,19 +1,30 @@
 from django.shortcuts import render
-from django.views.generic.list import ListView
+from django.views.generic import ListView, FormView
 
-from .models import Article, FAQ
-# from .forms import FAQForm
+
+from .models import Article, FAQ, Request
+from .forms import RequestForm
 
 from .utils import grouped, translate
 
 class FAQListView(ListView):
     model = FAQ
-    template_name = 'faq_list.html'
+    template_name = 'newsapp/faq.html'
 
     def get_context_data(self, **kwargs):
         context = super(FAQListView, self).get_context_data(**kwargs)
         context['faq_list'] = grouped(FAQ.objects.all(), 3)
         return context
+
+class ContactView(FormView):
+    form_class = RequestForm
+    template_name = 'newsapp/contact.html'
+
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        return super(Request, self).form_valid(form)
 
 
 def index(request):
@@ -22,9 +33,6 @@ def index(request):
 # Plain views
 def about(request):
     return render(request, 'newsapp/about.html')
-
-def contact(request):
-    return render(request, 'newsapp/contact.html')
 
 def extension(request):
     return render(request, 'newsapp/extension.html')
