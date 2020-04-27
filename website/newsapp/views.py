@@ -15,9 +15,9 @@ class FAQListView(ListView):
         context['faq_list'] = grouped(FAQ.objects.all(), 3)
         return context
 
+
 def index(request):
     return render(request, 'newsapp/index.html')
-
 
 # Plain views
 def about(request):

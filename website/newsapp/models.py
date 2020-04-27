@@ -2,7 +2,7 @@ from django.db import models
 
 from .utils import translate
 
-#FAQs
+# FAQs
 class FAQ(models.Model):
     question = models.CharField(max_length=200)
     answer = models.CharField(max_length=600)
@@ -10,23 +10,21 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
-#Knowledge graphs
+# Knowledge graphs
 class Claim(models.Model):
-    #Full claim
-    text_claim = models.CharField(max_length=200, unique = True)
+    # Full claim
+    text_claim = models.CharField(max_length=200, unique=True)
 
-    #Triplets
+    # Triplets
     subject = models.CharField(max_length=40)
     predicate = models.CharField(max_length=40)
     object = models.CharField(max_length=40)
 
-    #Verdict decides whether connection is true or false
+    # Verdict decides whether connection is true or false
     verdict = models.BooleanField()
 
-
-
     def __str__(self):
-        return self.claim
+        return self.text_claim
 
     @property
     def get_semantic_triplet(self):
@@ -36,9 +34,9 @@ class Claim(models.Model):
     def get_translated_triplet(self):
         return translate(self.get_semantic_triplet)
 
-#Category for Article
+# Category for Article
 class Category(models.Model):
-    title = models.CharField(max_length=50, unique = True)
+    title = models.CharField(max_length=50, unique=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -46,30 +44,54 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-
-#Abstract class to inherit common properties
 class Author(models.Model):
     pass
 
+# Abstract class to inherit common properties
 class Article(models.Model):
-    title = models.CharField(max_length=200, unique = True)
+    title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
 
-    # pub_author = models.ForeignKey(Author)
-    pub_date = models.DateTimeField()
-    last_modification_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        abstract= True
+        abstract = True
 
-
-#News
+# News
 class News(Article):
     categories = models.ManyToManyField(Category)
-    claims = models.ForeignKey(Claim, on_delete = models.PROTECT)
+    claims = models.ManyToManyField(Claim)
+
+    # author = models.ForeignKey(Author, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
+
+class Report(Article):
+    short_text = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.title
+
+#Given by user in form or from browser extension
+class Request(models.Model):
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+
+    content = models.TextField()
+
+    INFO_TYPE_CHOICES = [
+        ('FC', 'Fact checking'),
+        ('FDB', 'Feedback'),
+        ('D', 'Donation'),
+        ('ME', 'Media enquiry'),
+        ('DE', 'Different enquiry'),
+    ]
+    #Used when managing special type of requests
+    info_type = models.CharField(max_length=100,choices = INFO_TYPE_CHOICES)
+
+    #If applicable
+    url = models.URLField(blank=True)

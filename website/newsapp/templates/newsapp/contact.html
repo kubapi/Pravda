@@ -1,5 +1,35 @@
 {% extends 'newsapp/base.html' %}
 
+{% load static %}
+{% load crispy_forms_tags %}
+
 {% block title %}
 | Kontakt
+{% endblock %}
+
+{% block body %}
+
+<div class="main-image">
+  <img src="" alt="Ilustracja kontaktowa">
+</div>
+
+<form class="contact-form" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary">Wyślij</button>
+</form>
+
+<div class="about-voluntary-service">
+  <h3>Wolontariat</h3>
+  <p>
+    Wolontariusze wnoszą ogromny wkład w nasz zespół. Prosimy o wypełnienie <a href="{% url 'newsapp:voluntary_service' %}">formularzu wolontariatu</a>, a my skontaktujemy się, gdy będziemy mieli odpowiednią okazję.
+  </p>
+</div>
+
+<div class="about-error">
+  <h3>Znalazłeś błąd?</h3>
+  <p>
+    Staramy się, aby nasze kontrole faktów były jak najdokładniejsze i aktualne. Jeśli uważasz, że popełniliśmy błąd lub brakuje niektórych istotnych informacji, <a href="{% url 'newsapp:contact' %}">skontaktuj się z nami</a>.
+   </p>
+</div>
+
 {% endblock %}
