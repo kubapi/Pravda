@@ -20,11 +20,12 @@ class ContactView(FormView):
     form_class = RequestForm
     template_name = 'newsapp/contact.html'
 
-    success_url = '/'
+    success_url = '/kontakt/'
 
     def form_valid(self, form):
+        print("Reached!")
         form.save()
-        return super(Request, self).form_valid(form)
+        return super().form_valid(form)
 
 
 def index(request):

@@ -57,6 +57,9 @@ class Article(models.Model):
     class Meta:
         abstract = True
 
+    def __str__(self):
+        return self.title
+
 # News
 class News(Article):
     categories = models.ManyToManyField(Category)
@@ -67,21 +70,21 @@ class News(Article):
     class Meta:
         verbose_name_plural = "News"
 
-    def __str__(self):
-        return self.title
 
 class Report(Article):
     short_text = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.title
 
 #Given by user in form or from browser extension
 class Request(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200)
-
     content = models.TextField()
+
+    SOURCE_CHOICES = [
+        ('EX', 'Browser extension'),
+        ('CF', 'Contact form'),
+    ]
+    source = models.CharField(max_length=200, choices = SOURCE_CHOICES)
 
     INFO_TYPE_CHOICES = [
         ('FC', 'Fact checking'),
@@ -94,4 +97,9 @@ class Request(models.Model):
     info_type = models.CharField(max_length=100,choices = INFO_TYPE_CHOICES)
 
     #If applicable
-    url = models.URLField(blank=True)
+    url = models.TextField(blank=True)
+
+    add_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject

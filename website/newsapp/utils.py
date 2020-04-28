@@ -11,16 +11,3 @@ def translate(l):
     for element in l:
         list.append(translator.translate(element,src='pl', dest='en').text)
     return list
-
-# #Fake populating %TestOnly
-# import os
-# os.environ.setdefault('DJANGO_SETTINGS_MODULE','newsapp.settings')
-#
-# import django
-# django.setup()
-#
-# import random
-# from newsapp.models import News
-# from faker import Faker
-#
-# fakegen = Faker()
