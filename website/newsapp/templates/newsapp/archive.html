@@ -3,3 +3,21 @@
 {% block title %}
 | Archiwum
 {% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <input id="user-input" placeholder="Na przykład: Sieć 5G w Polsce, Szczepionka na koronawirusa">
+  </div>
+  <!-- categories mosaic -->
+  <div class="col-md-12">
+    mosaic
+  </div>
+</div>
+<div class="col-md-12">
+  <div id="replaceable-content" class="col-md-6">
+    {% include 'newsapp/news-archives-results-partial.html'%}
+  </div>
+</div>
+
+{% endblock %}
