@@ -1,7 +1,0 @@
-# PostgreSQL
-# ------------------------------------------------------------------------------
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-POSTGRES_DB=editor_pravda
-POSTGRES_USER=ckKyDTqOJfLzKwviRJnJkeuaIzlFkkPk
-POSTGRES_PASSWORD=BydJBWs6tNWTcuIsTkfk0MAGlb7m16VBBiYXKIsHNMtD5ZLuNaHAk0raMr1lWTRR
