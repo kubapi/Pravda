@@ -1,0 +1,14 @@
+body{ 
+    background-color: white;
+    
+    font-family: 'Montserrat', sans-serif;
+    color: #0d192d;
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 800;
+}
+h2 {
+    font-weight: 700;
+}
