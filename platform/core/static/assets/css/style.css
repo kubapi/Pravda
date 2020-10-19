@@ -86,6 +86,9 @@ body {
     background-color: #ffffff;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(46, 54, 80, 0);
+    /* disabling x-axis scroll*/
+    overflow-x: hidden; 
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

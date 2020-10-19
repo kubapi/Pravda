@@ -1,6 +1,6 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Register {% endblock %} 
+{% block title %} Zarejestruj się {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,14 +21,16 @@
                             <div class="text-center text-md-center mb-4 mt-md-0">
                                 <h1 class="mb-0 h3">
                                     <a target="_blank"
-                                       href="https://appseed.us/admin-dashboards/django-dashboard-volt">Django Volt</a> - Sign UP
+                                       href="#">
+                                       Platforma - Zarejestruj się
+                                    </a>
                                 </h1>
                                 <br />
                                 <p>
                                     {% if msg %}
                                         {{ msg | safe }}
                                     {% else %}
-                                        Add your credentials
+                                    Lepiej potknąć się o prawdę, niż ją ominąć...
                                     {% endif %}                                     
                                 </p>    
                             </div>
@@ -39,7 +41,7 @@
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="email">Username</label>
+                                    <label for="email">Nazwa użytkownika</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-user-shield"></span></span>
                                         {{ form.username }}
@@ -50,7 +52,7 @@
 
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="email">Your Email</label>
+                                    <label for="email">Email</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
                                         {{ form.email }}
@@ -63,7 +65,7 @@
 
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Password</label>
+                                        <label for="password">Hasło</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
                                             {{ form.password1 }}
@@ -74,7 +76,7 @@
 
                                     <!-- Form -->
                                     <div class="form-group mb-4">
-                                        <label for="password">Password Check</label>
+                                        <label for="password">Powtórz hasło</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
                                             {{ form.password2 }}
@@ -86,21 +88,21 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
                                             <label class="form-check-label" for="defaultCheck5">
-                                              Agree terms
+                                                Zapoznałem(am) się z <a href="#" target='_blank'> regulaminem </a> i akceptuję jego treść.
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <a href="{% url 'login' %}" class="small text-right">Login</a>
+                                            <a href="{% url 'login' %}" class="small text-right">Zaloguj się</a>
                                         </div>
                                     </div>
                                     
                                 </div>
-                                <button type="submit" name="register" class="btn btn-block btn-primary">Sign in</button>
+                                <button type="submit" name="register" class="btn btn-block btn-primary">Zarejestruj się</button>
                             </form>
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="font-weight-normal">
-                                    &copy; <a  href="https://themesberg.com" target="_blank">Themesberg</a> 
-                                    - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>
+                                    <a href = "#">Platforma</a> 
+                                    - stworzone przez <a target="_blank" href="https://pravda.org.pl">Stowarzyszenie Pravda ❤️</a>
                                 </span>
                             </div>
                         </div>
