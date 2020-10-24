@@ -2,10 +2,10 @@ FROM python:3.6
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /university
+RUN mkdir /platform
 
-WORKDIR /university
+WORKDIR /platform
 
-ADD . /university/
+ADD . /platform/
 
-RUN pip install -r requierments.txt
+RUN pip install -r requirements.txt
