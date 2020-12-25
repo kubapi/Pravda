@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "Pravda's Accio",
+    "version": "0.1",
+
+    "browser_action": {
+        "default_popup": "html/popup.html",
+        "default_title": "Pravda's Accio tool for data collection."
+    }
+}
+
