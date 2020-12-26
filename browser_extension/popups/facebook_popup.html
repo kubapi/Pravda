@@ -10,8 +10,46 @@
         <h1>Accio</h1>
         <h2><i>for Facebook</i></h2>
     </div>
-    <p>Accio is a tool that makes manual scraping of data much easier. It supports connecting to google sheets (via Google API). We implemented the most important features. Please feel free to open an issue if you have any ideas on how to improve our piece of software.</p>
+    <form action="">
+        <label for="no_reactions" >No. reactions</label>
+        <input type="number" name="no_reactions" id="no_reactions"><br>
 
+        <label for="no_shares" >No. shares</label>
+        <input type="number" name="no_shares" id="no_shares"><br>
+
+        <label for="author" >Author (name)</label>
+        <input type="text" name="author" id="author"><br>
+
+        <label for="author_url" >Author URL</label>
+        <input type="url" name="author_url" id="author_url"><br>
+
+        <!-- <label for="no_author_likes" >No. author likes</label>
+        <input type="number" name="" id=""><br> -->
+
+        <label for="upload_date" >Upload date</label>
+        <input type="date" name="upload_date" id="upload_date"><br>
+
+        <label for="redirect_url" >Redirection URL (can be an image, YouTube video, Fb post, Twitter post...)</label>
+        <input type="url" name="redirect_url" id="redirect_url"><br>
+
+        <label for="content" >Content</label>
+        <textarea name="content" id="content"></textarea><br>
+
+        <label for="content_url" >Content URLs</label>
+        <input type="url" name="content_url" id="content_url"><br>
+        <!-- <button type="button">Add another</button> -->
+
+        <label for="no_comments" >No. comments</label>
+        <input type="number" name="no_comments" id="no_comments"><br>
+
+        <label for="comments" >Comments</label>
+        <textarea name="comments" id="comments"></textarea><br>
+        <!-- <button type="button">Add another</button> -->
+
+        <button type="submit">Report</button>
+    </form>
+
+    <p>Accio is a tool that makes manual scraping of data much easier. It supports connecting to google sheets (via Google API). We implemented the most important features. Please feel free to open an issue if you have any ideas on how to improve our piece of software.</p>
     <p>Software created by <a href="https://pravda.org.pl" target="_blank" >pravda.org.pl</a></p>
 </body>
 </html>

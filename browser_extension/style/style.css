@@ -5,3 +5,7 @@ body {
 .title {
     text-align: center;
 }
+
+label, input, textarea {
+    display: block;
+}

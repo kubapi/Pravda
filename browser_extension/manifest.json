@@ -29,7 +29,7 @@
         },
         "default_title": "Pravda's Accio",
         
-        "default_popup": "popups/default_popup.html"
+        "default_popup": "popups/facebook_popup.html"
     },
     
     "icons": {                    
